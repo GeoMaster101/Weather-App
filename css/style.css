@@ -1,0 +1,458 @@
+:root {
+  --bg-light: #0a71ad;
+  --bg-dark: #57595b;
+  --heading-color: #d6d6d6;
+  --temp-color-freeze: #4397df; /* 0 deg */
+  --temp-color-cold: #69e2d2; /* 10 deg */
+  --temp-color-neutral: #f8d648; /* 20 deg */
+  --temp-color-warm: #ed732e; /* 30 deg */
+  --temp-color-hot: #cf2d1f; /* 40 deg */
+  --container-sunny-bg: linear-gradient(90deg, #307cc8 0%, #94cff1 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* remove later */
+body {
+  /* padding: 1rem; */
+  background-image: url("../images/night-bg-phone.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  max-width: 1800px;
+  margin: 0 auto;
+  /* opacity: 0.8; */
+}
+
+/* TYPOGRAPHY */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.3rem;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 7rem;
+}
+
+h3 {
+  font-size: 2.3rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 1.28rem;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  h4 {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.42rem;
+  }
+
+  h2 {
+    font-size: 9rem;
+  }
+
+  h3 {
+    font-size: 3.4rem;
+  }
+
+  h4 {
+    font-size: 2.5rem;
+  }
+}
+
+/* SIZING */
+.w-1 {
+  width: 7rem;
+}
+
+.w-2 {
+  width: 135px;
+}
+
+.w-100{
+  width: 100%;
+}
+
+/* BACKGOUND COLOR */
+.bg-light-custom{
+  background-color: var(--bg-light);
+}
+
+.bg-dark-custom{
+  background-color: var(--bg-dark);
+}
+
+/* SECTION */
+.section {
+  padding: 1rem 1.5rem;
+  /* remove this line below after done*/
+  /* border: 1px solid black;  */
+  border-radius: 1.5rem;
+  /* background: linear-gradient(90deg, #307cc8 0%, #94cff1 100%); */
+  /* background-color: var(--bg-dark); */
+  color: white;
+}
+
+/* LIST */
+.list {
+  padding: 0;
+  margin: 0;
+  /* overflow: hidden; */
+}
+
+.list--row {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.list-item {
+  list-style: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid lightgrey;
+}
+
+.list-item:last-child {
+  border-bottom: 0;
+}
+
+.list--row .list-item {
+  border-bottom: 0;
+}
+
+/* RADIO BUTTON */
+.hidden-radio {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* MARGIN & PADDING */
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.ml-2 {
+  margin-left: 2rem;
+}
+
+.mr-2 {
+  margin-right: 2rem;
+}
+
+/* DISPLAY */
+.d-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.d-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-end {
+  justify-content: end;
+}
+
+.align-items-end {
+  align-items: end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+/* CARD */
+.card {
+  background-color: var(--bg-light);
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  padding-top: 0;
+  /* background-image: url("../images/sunny-bg.jpeg"); */
+  background-size: cover;
+  width: 100%;
+}
+
+.card__current-temp {
+  font-size: 5.4rem;
+}
+
+.card__city {
+  font-size: 2.4rem;
+}
+
+.card__weather-min-max {
+  width: 7rem;
+}
+
+/* ICON */
+.icon {
+  width: 35px;
+  height: 35px;
+}
+
+.icon--small {
+  width: 15px;
+  height: 15px;
+}
+
+.icon--medium {
+  width: 20px;
+  height: 20px;
+}
+
+/* HOURLY FORECAST */
+.hourly-forecast {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.hourly-forecast::-webkit-scrollbar {
+  display: none;
+}
+
+.hourly-forecast .list-item {
+  flex-shrink: 0;
+}
+
+.hourly-forecast__time,
+.hourly-forecast__temp {
+  font-weight: bold;
+}
+
+.hourly-forecast__temp {
+  font-size: 1.7rem;
+}
+
+/* 5-DAYS FORECAST */
+.five-days-forecast {
+  width: 100%;
+}
+
+.temp-bar {
+  border-radius: 10px;
+  margin: 0 5px;
+  width: 70px;
+  height: 10px;
+}
+
+.temp-bar--010 {
+  background: linear-gradient(
+    90deg,
+    var(--temp-color-freeze) 0%,
+    var(--temp-color-cold) 100%
+  );
+}
+
+.temp-bar--1020{
+  background: linear-gradient(
+    90deg,
+    var(--temp-color-cold) 0%,
+    var(--temp-color-neutral) 100%
+  );
+}
+
+.temp-bar-2030{
+  background: linear-gradient(
+    90deg,
+    var(--temp-color-neutral) 0%,
+    var(--temp-color-warm) 100%
+  );
+}
+
+.temp-bar-3040{
+  background: linear-gradient(
+    90deg,
+    var(--temp-color-warm) 0%,
+    var(--temp-color-hot) 100%
+  );
+}
+
+.five-days-forecast__heading {
+  color: var(--heading-color);
+  font-size: 1.2rem;
+  width: 135px;
+}
+
+.five-days-forecast__temp-bar {
+  background: linear-gradient(
+    90deg,
+    var(--temp-color-freeze) 0%,
+    var(--temp-color-neutral) 100%
+  );
+  border-radius: 10px;
+  margin: 0 5px;
+  width: 70px;
+  height: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .five-days-forecast {
+    width: 50%;
+  }
+
+  .five-days-forecast__heading {
+    width: 140px;
+  }
+
+  .temp-bar  {
+    width: 90px;
+    margin: 0 10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* .five-days-forecast{
+    width: 35%;
+  } */
+}
+
+/* HEADER */
+.offcanvas-title {
+  font-weight: bold;
+}
+
+.menu {
+  display: none;
+}
+
+.menu .list-item, #menu-toggle__city-list .list-item{
+  border: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  header {
+    position: fixed;
+    margin: 0;
+  }
+
+  .menu {
+    /* background-color: var(--bg-dark); */
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100vh;
+  }
+
+  .menu:hover {
+    opacity: 1;
+  }
+
+  .menu .icon {
+    align-self: flex-end;
+  }
+}
+
+/* MAIN */
+@media screen and (min-width: 1024px) {
+  main {
+    margin-left: 330px;
+    margin-right: 20px;
+  }
+
+  #current-location h3 {
+    margin-top: 75px;
+  }
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+  width: 300px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  padding-left: 25px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: 0;
+}
+
+.dropdown-item {
+  color: white;
+  padding: 0;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu .btn {
+  font-size: 1.5rem;
+}
+.dropdown-item p {
+  padding-bottom: 3px;
+}
+
+/* DROP DOWN SEARCH MENU*/
+.dropdown-menu-custom{
+  display: none;
+}
